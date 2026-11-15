@@ -203,6 +203,22 @@
   .card li { padding: 11px 0 11px 26px; border-top: 1px solid var(--line); font-size: 14px; color: #d6dad8; position: relative; }
   .card li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 10px; height: 6px; border-left: 1.6px solid var(--green); border-bottom: 1.6px solid var(--green); transform: rotate(-45deg); }
 
+  /* ---------- FAQ ---------- */
+  .faq { padding-bottom: 100px; }
+  .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { border-radius: 16px; transition: border-color .2s; }
+  .faq-item[open] { border-color: var(--green-line); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 24px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 16px; }
+  .plus { flex: none; position: relative; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line-2); }
+  .plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 1.6px; background: #fff; transform: translate(-50%, -50%); transition: transform .2s; }
+  .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .faq-item[open] .plus { border-color: var(--green-line); }
+  .faq-item[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .faq-item p { padding: 0 24px 22px; color: var(--muted); font-size: 15.5px; max-width: 680px; }
+  @media (max-width: 640px) { .faq-item summary { font-size: 15.5px; padding: 18px; } .faq-item p { padding: 0 18px 18px; font-size: 14.5px; } }
+
   /* ---------- CTA banner ---------- */
   .cta { padding-bottom: 60px; }
   .banner { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 44px 60px 44px 220px; min-height: 160px; }
@@ -273,6 +289,7 @@
     footer .bottom { flex-direction: column; gap: 10px; }
   }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is 1M tokens worth?", "acceptedAnswer": {"@type": "Answer", "text": "About 750,000 English words. That is roughly 1,500 pages, or around 10 novels. Arabic text uses more tokens per word, so the same budget covers fewer Arabic words. Most team members use 1.5M to 2M tokens a month."}}, {"@type": "Question", "name": "Can smaller open models perform as well as the big ones in my field?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when they are trained on the right data. A smaller model trained on your work can match much larger general-purpose models on the tasks your business actually does. It also ends up cheaper to run, faster to respond and more consistent in its answers."}}, {"@type": "Question", "name": "How long does it take to deploy a model on LayerOS?", "acceptedAnswer": {"@type": "Answer", "text": "Your model is live within 5 minutes of registering. Pick a model, invite your team and start working the same day. No code and no setup on your side."}}, {"@type": "Question", "name": "Can I switch models and keep what my AI has learned?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything your AI has learned about your business stays with you. When you move to a newer or different model, LayerOS carries that knowledge over to it, so you never start from zero."}}]}</script>
 </head>
 <body>
 
@@ -466,6 +483,32 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="wrap faq" id="faq">
+    <div class="sec-head">
+      <span class="eyebrow">FAQs</span>
+      <h2 class="big">Questions, <span class="grey">answered.</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item glass" open>
+        <summary>How much is 1M tokens worth?<span class="plus" aria-hidden="true"></span></summary>
+        <p>About 750,000 English words. That is roughly 1,500 pages, or around 10 novels. Arabic text uses more tokens per word, so the same budget covers fewer Arabic words. Most team members use 1.5M to 2M tokens a month.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary>Can smaller open models perform as well as the big ones in my field?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Yes, when they are trained on the right data. A smaller model trained on your work can match much larger general-purpose models on the tasks your business actually does. It also ends up cheaper to run, faster to respond and more consistent in its answers.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary>How long does it take to deploy a model on LayerOS?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Your model is live within 5 minutes of registering. Pick a model, invite your team and start working the same day. No code and no setup on your side.</p>
+      </details>
+      <details class="faq-item glass">
+        <summary>Can I switch models and keep what my AI has learned?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Yes. Everything your AI has learned about your business stays with you. When you move to a newer or different model, LayerOS carries that knowledge over to it, so you never start from zero.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="wrap cta">
     <div class="banner glass">
@@ -484,7 +527,7 @@
     <div class="top">
       <a href="#" class="logo"><svg><use href="#logo"/></svg>LayerOS</a>
       <nav class="links">
-        <a href="#platform">Product</a><a href="#why">Why LayerOS</a><a href="#">Docs</a><a href="pitch-deck.html">The Pitch Deck</a><a href="#">Support</a>
+        <a href="#platform">Product</a><a href="#why">Why LayerOS</a><a href="#">Docs</a><a href="pitch-deck.html">The Pitch Deck</a><a href="#faq">FAQs</a><a href="#">Support</a>
       </nav>
       <div class="social">
         <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 015 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z"/></svg></a>
